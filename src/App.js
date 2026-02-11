@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import StaticContext from './context/StaticContext'
+import { Link, Route } from 'wouter'
+import Home from './pages/Home'
+import SearchResults from './pages/SearchResults'
+import Detail from './pages/Detail'
+import { PicsContextProvider } from './context/PicsContext'
+import CollectionDetail from './pages/Collectionspage/CollectionDetail'
+import Header from './components/Header'
 
-function App() {
+export default function App() {
   return (
+ <StaticContext.Provider value={{
+    name:'Juan',
+    ok: true
+    }}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <Header />
+      
+      <section className="App-content">
+        
+        <Link to="/">
+           <img src="/Glogo.svg" alt="Logo" className='Logo'/>
+        </Link>
 
-export default App;
+        
+        <PicsContextProvider>
+          <Route 
+          component={Home}
+          path="/"
+          />
+         <Route 
+          component={SearchResults}
+          path="/search/:keyword"/>
+
+         <Route 
+          component={Detail}
+          path="/photo/:id"
+          />
+          <Route 
+          component={CollectionDetail}
+           path="/collections/:id"
+           />
+         </PicsContextProvider>
+      </section>
+      </div>
+    </StaticContext.Provider>
+)}
+
+
