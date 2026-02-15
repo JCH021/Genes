@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import StaticContext from './context/StaticContext'
-import { Link, Route } from 'wouter'
+import {  Route } from 'wouter'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import Detail from './pages/Detail'
