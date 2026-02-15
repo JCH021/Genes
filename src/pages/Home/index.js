@@ -22,15 +22,37 @@ export default function Home() {
     }
     return (
      <>
+     
+        <section className="hero">                   
+            <Link to="/">
+                <img src="/Glogo.svg" alt="Logo" className='Logo'/>
+            </Link>
+                <h1>Genes - Deine Galerie für visuelle Inspiration</h1>
+                <p>Entdecke Millionen hochqualitative Fotografien und erstelle deine eigenen Sammlungen.</p>
+        </section>
+
         <form onSubmit={handleSubmit}>
-            <input placeholder="Text hier eingeben..."onChange={handlechange}type='text' value={keyword}/>
+            <input placeholder="Fotos suchen (z.B. Natur, Stadt, Essen...)"onChange={handlechange}type='text' value={keyword}/>
            </form>
+
+        <div className="quick-searches">
+                <p>Beliebte Suchen:</p>
+            <div className="tags">
+                {['Natur', 'Architektur', 'Tiere', 'Essen', 'Reisen'].map(tag => (
+                <Link key={tag} href={`/search/${tag.toLowerCase()}`} className="tag">
+                {tag}
+                </Link>
+                ))}
+            </div>
+        </div>
         <div>
             <div className="App-results">
-                <h3 className="App-title">Letzte Suche</h3>
+                <h3 className="App-title">
+                    Letzte Suche
+                </h3>
                 <ListOfPics pics={pics}/>
             </div>
-            <div className="App-category">
+            <div className="App-category"id="collections">
                 <Collections />
             </div>
         </div>

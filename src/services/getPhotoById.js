@@ -1,4 +1,4 @@
-const apiKey = 'YV1Tqqtl_RjEDI5RU_otft9XbtAEDRzVGh4slG07_Pc';
+const apiKey = process.env.REACT_APP_UNSPLASH_API_KEY;
 
 export function getPhotoById(id) {
   const apiURL = `https://api.unsplash.com/photos/${id}?client_id=${apiKey}`;

@@ -12,7 +12,7 @@ export default function UsePics ({ keyword } = { keyword: null }) {
         const[page,setPage] = useState(INITIAL_PAGE)
         const {pics, setPics} = useContext(PicsContext)
         
-        const keywordToUse = keyword ? keyword : localStorage.getItem('lastkeyword')
+        const keywordToUse = keyword || localStorage.getItem('lastkeyword') || 'Natur'
                
               useEffect(function()  {
                 if (!keywordToUse) return; 

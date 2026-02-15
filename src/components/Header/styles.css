@@ -64,8 +64,10 @@
     padding: 0.350rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 0.95rem;
-    font-weight: 600;
-    font-family: "Crimson Pro", serif;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
     text-decoration: none;
     color: var(--color-slate-600);
     transition: all var(--transition-base);

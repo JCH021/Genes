@@ -4,10 +4,19 @@ import { getCollections } from "../../services/getCollections";
 
 export default function Collections() {
   const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCollections().then(setCollections);
+    setLoading(true);
+    getCollections()
+      .then(collections => {
+        setCollections(collections);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   }, []);
 
-  return <Category name="Collections" options={collections} />;
+  return <Category name="Collections" options={collections} loading={loading} />;
 }

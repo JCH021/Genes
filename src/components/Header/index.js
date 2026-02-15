@@ -27,16 +27,28 @@ export default function Header() {
                 {/* Navegación */}
                 <nav className={`Header-nav ${isMenuOpen ? 'open' : ''}`}>
                     <Link 
-                        to="/" 
-                        className={`Header-nav-link ${isHome ? 'active' : ''}`}
-                        onClick={() => setIsMenuOpen(false)}
-                    >
+                         to="/" 
+                         className={`Header-nav-link ${isHome ? 'active' : ''}`}
+                         onClick={(e) => {
+                            setIsMenuOpen(false);
+                            if (window.location.pathname === '/') {
+                             e.preventDefault(); // Evitar navegación
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }
+                            }}
+                         >
                          Home
                     </Link>
                     <Link 
-                        to="/collections" 
+                        to="/#collections" 
                         className={`Header-nav-link ${isCollections ? 'active' : ''}`}
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() =>  {
+                        setIsMenuOpen(false);
+                        setTimeout(() => {
+                        const section = document.querySelector('.App-category');
+                        section?.scrollIntoView({ behavior: 'smooth' });
+                         }, 100);
+                        }}
                     >
                          Collections
                     </Link>

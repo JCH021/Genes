@@ -19,10 +19,6 @@ export default function App() {
       <Header />
       
       <section className="App-content">
-        
-        <Link to="/">
-           <img src="/Glogo.svg" alt="Logo" className='Logo'/>
-        </Link>
 
         
         <PicsContextProvider>
